@@ -27,3 +27,17 @@ df_clean = df_clean.drop(df_clean.index[10472])
 
 df_clean["Reviews"] = df_clean["Reviews"].astype(int)
 print(df_clean.info())
+
+
+# print(df_clean["Size"].value_counts())
+# print(df_clean["Size"].unique())
+
+"""Her seyi kilobayt seklinde yazacagiz"""
+
+df_clean["Size"] = df_clean["Size"].str.replace("M", "000")
+df_clean["Size"] = df_clean["Size"].str.replace("k", "")
+df_clean["Size"] = df_clean["Size"].replace("Varies with device", np.nan)
+print(df_clean["Size"].unique())
+
+
+
