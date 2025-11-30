@@ -4,3 +4,26 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 df = pd.read_csv("googleplaystore.csv")
+print(df.head())
+print(df.columns) # columns of head
+print(df.info())
+print(df.describe()) # numerics
+print("-"*50)
+
+
+#### missing data ###
+print(df.isnull().sum())
+
+## string convert to integer for Reviews
+# df["Reviews"] = df["Reviews"].astype(int) her sey uygun degil
+
+print(df["Reviews"].str.isnumeric().sum()) # kac tanesi numeric diye baktik
+
+print(df[~df["Reviews"].str.isnumeric()]) # numeric olmayanlari gosteriyor
+
+df_clean = df.copy() # data temizligi icin ana df yi bozmamak icin yeni actik
+
+df_clean = df_clean.drop(df_clean.index[10472])
+
+df_clean["Reviews"] = df_clean["Reviews"].astype(int)
+print(df_clean.info())
