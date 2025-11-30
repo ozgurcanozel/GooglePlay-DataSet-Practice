@@ -39,5 +39,8 @@ df_clean["Size"] = df_clean["Size"].str.replace("k", "")
 df_clean["Size"] = df_clean["Size"].replace("Varies with device", np.nan)
 print(df_clean["Size"].unique())
 
+df_clean["Size"] = df_clean["Size"].astype(float)
+print(df_clean.isnull().sum())
+print(df_clean.info())
 
-
+print(df_clean.tail())
