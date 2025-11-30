@@ -44,3 +44,31 @@ print(df_clean.isnull().sum())
 print(df_clean.info())
 
 print(df_clean.tail())
+
+
+"""Installs kismina bakacagiz"""
+
+print(df_clean["Installs"].value_counts()) # number of download
+print(df_clean["Price"].value_counts())
+
+chars_to_remove = ["+",",","$"]
+cols_to_clean = ["Installs", "Price"]
+
+for item in chars_to_remove:
+    for cols in cols_to_clean:
+        df_clean[cols] = df_clean[cols].str.replace(item, "")
+
+print(df_clean["Price"].unique())
+print(df_clean["Installs"].unique())
+
+df_clean["Price"] = df_clean["Price"].astype(float)
+df_clean["Installs"] = df_clean["Installs"].astype(int)
+
+print(df_clean.info())
+print(df_clean.describe())
+
+print(df_clean.head())
+
+
+
+
