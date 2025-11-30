@@ -80,3 +80,31 @@ df_clean["Year"] = df_clean["Last Updated"].dt.year # cevirdikten sonra yapacagi
 print(df_clean.head())
 
 print(df_clean.info())
+
+
+                    ###### EDA (Exploratory data analysis) ######
+
+print(df_clean[df_clean.duplicated('App')].shape)
+
+df_clean = df_clean.drop_duplicates(subset=['App'], keep='first')
+print(df_clean.info())
+print(df_clean.shape)
+
+numeric_features = [feature for feature in df_clean.columns if df_clean[feature].dtype != "O"]
+categorical_features = [feature for feature in df_clean.columns if df_clean[feature].dtype == "O"]
+
+print(numeric_features)
+print(categorical_features)
+
+# print(df_clean["Android Ver"].dtype) # O
+# print(df_clean["Day"].dtype)
+
+
+plt.figure(figsize = (15,10))
+
+for i in range(0, len(numeric_features)):
+    plt.subplot(5, 3, i+1) # 5 satir 3 kolonluk
+    sns.kdeplot(x=df_clean[numeric_features[i]],color = "b", fill = True)
+    plt.xlabel(numeric_features[i])
+    plt.tight_layout()
+plt.show()
