@@ -69,6 +69,14 @@ print(df_clean.describe())
 
 print(df_clean.head())
 
+print(df_clean["Last Updated"].unique())
+df_clean["Last Updated"] = pd.to_datetime(df_clean["Last Updated"])
+# print(df_clean["Last Updated"].head())
 
+df_clean["Day"] = df_clean["Last Updated"].dt.day # cevirdikten sonra yapacagiz
+df_clean["Month"] = df_clean["Last Updated"].dt.month # cevirdikten sonra yapacagiz
+df_clean["Year"] = df_clean["Last Updated"].dt.year # cevirdikten sonra yapacagiz
 
+print(df_clean.head())
 
+print(df_clean.info())
