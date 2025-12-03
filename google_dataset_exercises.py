@@ -104,7 +104,19 @@ plt.figure(figsize = (15,10))
 
 for i in range(0, len(numeric_features)):
     plt.subplot(5, 3, i+1) # 5 satir 3 kolonluk
-    sns.kdeplot(x=df_clean[numeric_features[i]],color = "b", fill = True)
+    sns.kdeplot(x=df_clean[numeric_features[i]],color = "b", fill = True) # dagilim ciziyor
     plt.xlabel(numeric_features[i])
+    plt.tight_layout()
+plt.show()
+
+# free or paid & for who 
+plt.figure(figsize = (15,4))
+
+category = ["Type", "Content Rating"]
+
+for i in range(0, len(category)):
+    plt.subplot(1, 2, i+1) # 5 satir 3 kolonluk
+    sns.countplot(x=df_clean[category[i]],color = "b", fill = True)
+    plt.xlabel(category[i])
     plt.tight_layout()
 plt.show()
