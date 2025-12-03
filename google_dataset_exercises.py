@@ -100,23 +100,32 @@ print(categorical_features)
 # print(df_clean["Day"].dtype)
 
 
-plt.figure(figsize = (15,10))
+# plt.figure(figsize = (15,10))
+#
+# for i in range(0, len(numeric_features)):
+#     plt.subplot(5, 3, i+1) # 5 satir 3 kolonluk
+#     sns.kdeplot(x=df_clean[numeric_features[i]],color = "b", fill = True) # dagilim ciziyor
+#     plt.xlabel(numeric_features[i])
+#     plt.tight_layout()
+# plt.show()
+#
+# # free or paid & for who
+# plt.figure(figsize = (15,4))
+#
+# category = ["Type", "Content Rating"]
 
-for i in range(0, len(numeric_features)):
-    plt.subplot(5, 3, i+1) # 5 satir 3 kolonluk
-    sns.kdeplot(x=df_clean[numeric_features[i]],color = "b", fill = True) # dagilim ciziyor
-    plt.xlabel(numeric_features[i])
-    plt.tight_layout()
-plt.show()
+# for i in range(0, len(category)):
+#     plt.subplot(1, 2, i+1) # 5 satir 3 kolonluk
+#     sns.countplot(x=df_clean[category[i]],color = "b", fill = True)
+#     plt.xlabel(category[i])
+#     plt.tight_layout()
+# plt.show()
 
-# free or paid & for who 
-plt.figure(figsize = (15,4))
+print(df_clean["Category"].value_counts())
 
-category = ["Type", "Content Rating"]
+## top app categories by installment
 
-for i in range(0, len(category)):
-    plt.subplot(1, 2, i+1) # 5 satir 3 kolonluk
-    sns.countplot(x=df_clean[category[i]],color = "b", fill = True)
-    plt.xlabel(category[i])
-    plt.tight_layout()
-plt.show()
+print(df_clean.tail())
+df_cat_installs = (df_clean.groupby(["Category"])["Installs"].sum().sort_values(ascending=False).reset_index())
+df_cat_installs["Installs"] = df_cat_installs["Installs"]/1000000000
+print(df_cat_installs)
