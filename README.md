@@ -88,16 +88,17 @@ After cleaning the dataset, the following analyses were performed:
 ---
 
 
-![Distribution Plots](<img width="2245" height="854" alt="Screenshot 2025-12-03 083239" src="https://github.com/user-attachments/assets/8cea2041-f5b9-4266-bc2b-31aea23d4b9c" />)
+![Distribution Plots]()
+<img width="2245" height="854" alt="Screenshot 2025-12-03 083239" src="https://github.com/user-attachments/assets/102f4e14-2ccf-44c7-a087-8ab07e96172d" />
 
 
-![Top Categories](<img width="1447" height="743" alt="Screenshot 2025-12-03 083305" src="https://github.com/user-attachments/assets/be7207b6-b97b-4c0f-935e-f34169a727f0" />
-)
+![Top Categories]()
+<img width="1447" height="743" alt="Screenshot 2025-12-03 083305" src="https://github.com/user-attachments/assets/4e70b412-d527-48a6-8b79-c11396b3a28c" />
 
 
-![Top 5 Apps](<img width="2559" height="1279" alt="Screenshot 2025-12-03 083321" src="https://github.com/user-attachments/assets/f4d85afb-3843-4a88-abcb-25e31d405c74" />
-)
 
+![Top 5 Apps]()
+<img width="2559" height="1279" alt="Screenshot 2025-12-03 083321" src="https://github.com/user-attachments/assets/23d922d0-5349-41bf-ab50-919fc9d54175" />
 
 
 
