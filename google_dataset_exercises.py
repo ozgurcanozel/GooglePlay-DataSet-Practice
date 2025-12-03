@@ -155,3 +155,21 @@ for i, app in enumerate(apps):
 
 plt.tight_layout()
 plt.show()
+
+# 5 rating apps
+
+rating_df = (df_clean.groupby(['Category','Installs', 'App'])['Rating'].sum().sort_values(ascending = False).reset_index())
+
+top_rated_apps = rating_df[rating_df['Rating'] == 5.0]
+print(df_clean.info())
+
+print(df_clean["Android Ver"])
+df_clean["Android Ver"] = df_clean["Android Ver"].replace('and up', '', regex=True)
+# regex and up gecen her yerde bu islemi yap demektir
+df_clean["Android Ver"] = df_clean["Android Ver"].replace('Varies with device', '', regex=True).replace('W','',regex=True).replace('',np.nan,regex=True)
+
+print(df_clean["Android Ver"].value_counts())
+
+print(df_clean[df_clean['Android Ver'].str.contains("-")== False])
+
+print(df_clean["Android Ver"].value_counts())
