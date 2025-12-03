@@ -138,3 +138,20 @@ plt.figure(figsize = (10,5))
 sns.barplot(x = "Installs", y = "Category", data = df2)
 plt.show()
 
+# top 5 app in categories
+apps = ['GAME','COMMUNICATION','TOOLS','PRODUCTIVITY','SOCIAL']
+df_app_category =(df_clean.groupby(["Category","App"])["Installs"].sum().reset_index()) # hem kategorileri hem yanindaki appleri cikarmaya basliyor
+
+df_app_category=(df_app_category.sort_values(by='Installs', ascending=False))
+
+plt.figure(figsize=(40,30))
+for i, app in enumerate(apps):
+    df2 = df_app_category[df_app_category.Category == app]
+    df2 = df2.head(5)
+
+    plt.subplot(3,2,i+1)
+    sns.barplot(data=df2, x = "Installs", y = "App")
+    plt.title(app, size = 20)
+
+plt.tight_layout()
+plt.show()
