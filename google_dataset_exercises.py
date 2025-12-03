@@ -129,3 +129,12 @@ print(df_clean.tail())
 df_cat_installs = (df_clean.groupby(["Category"])["Installs"].sum().sort_values(ascending=False).reset_index())
 df_cat_installs["Installs"] = df_cat_installs["Installs"]/1000000000
 print(df_cat_installs)
+
+## top 10 categories by install
+
+df2 = df_cat_installs.head(10) # ilk 10 u aliyor
+plt.figure(figsize = (10,5))
+
+sns.barplot(x = "Installs", y = "Category", data = df2)
+plt.show()
+
