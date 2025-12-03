@@ -173,3 +173,17 @@ print(df_clean["Android Ver"].value_counts())
 print(df_clean[df_clean['Android Ver'].str.contains("-")== False])
 
 print(df_clean["Android Ver"].value_counts())
+
+
+# TARGET ENCODING
+print(df_clean["Genres"].unique()) # categories
+
+print(df_clean.tail())
+
+mean_genres_installs = (df_clean.groupby(["Genres"])["Installs"].mean() / 1000000)
+
+mean_genres_installs=mean_genres_installs.to_dict()
+print(mean_genres_installs)
+
+df_clean["Genres Encoded"] = df_clean["Genres"].map(mean_genres_installs)
+print(df_clean["Genres Encoded"])
